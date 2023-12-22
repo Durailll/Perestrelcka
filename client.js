@@ -231,7 +231,7 @@ Damage.OnKill.Add(function(player, killed) {
 
 // задаем макс смертей команд
 var maxDeaths = "<B>test</B>";
-var maxDeaths2 = "v.0.01";
+var maxDeaths2 = "v0.02";
 Teams.Get("Red").Properties.Get("Deaths").Value = maxDeaths;
 Teams.Get("Blue").Properties.Get("Deaths").Value = maxDeaths2;
 
@@ -333,6 +333,15 @@ lopTrigger.Tags = ["втор"];
 lopTrigger.Enable = true; 
 lopTrigger.OnEnter.Add(function(player) { 
 player.inventory.Secondary.Value = true;
+player.Ui.Hint.Value = "вы взяли вторичное оружие";
+});
+//бан
+var lopTrigger = AreaPlayerTriggerService.Get("lopTrigger");
+lopTrigger.Color = {g:1};
+lopTrigger.Tags = ["втор"]; 
+lopTrigger.Enable = true; 
+lopTrigger.OnEnter.Add(function(player) { 
+player.inventory.Secondar.Value = true;
 player.Ui.Hint.Value = "вы взяли вторичное оружие";
 });
 
