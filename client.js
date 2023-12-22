@@ -328,15 +328,4 @@ baTrigger.OnEnter.Add(function(player) {
 });
 
 
-//выдача оружия
-var ttTrigger =  AreaPlayerTriggerService.Get("ttTrigger")
-
-ttTrigger.Tags = [ttAreasTag];  
-ttTrigger.Enable = true;  
-ttTrigger.OnEnter.Add(function (player)         { player.Ui.Hint.Value = "ТЫ ПОЛУЧИЛ ОСНОВУ";
-player.Properties.Immortality.Value = false;  
-Spawns.GetContext().enable = true;   
-Player.inventory.Main.Value = true;  
-Player.inventory.MainInfinity.Value = true;     
-}); 
 
