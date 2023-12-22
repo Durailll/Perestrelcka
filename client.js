@@ -326,6 +326,14 @@ baTrigger.OnEnter.Add(function(player) {
       player.Ui.Hint.Value = "Игрок " +  sPlayer.nickName + " разбанен"; 
 } 
 });
-
+//бан
+var lopTrigger = AreaPlayerTriggerService.Get("lopTrigger");
+lopTrigger.Color = {g:1};
+lopTrigger.Tags = ["втор"]; 
+lopTrigger.Enable = true; 
+lopTrigger.OnEnter.Add(function(player) { 
+player.inventory.Secondar.Value = true;
+player.Ui.Hint.Value = "вы взяли вторичное оружие";
+});
 
 
