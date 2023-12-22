@@ -327,5 +327,16 @@ baTrigger.OnEnter.Add(function(player) {
 } 
 });
 
+//зона адм
+var adTrigger =
+AreaPlayerTriggerService.Get("гранаты")
+adTrigger.Tags = ["гранаты"];
+adTrigger.Enable = true;
+adTrigger.OnEnter.Add(function(player){
+player.inventory.Explosive.Value = true;
+player.inventory.ExplosiveInfinity.Value = true;
+player.Ui.Hint.Value = "ТЫ ПОЛУЧИЛ(а) ГРАНАТЫ"
+}
+});
 
 
