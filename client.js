@@ -179,8 +179,7 @@ Teams.OnPlayerChangeTeam.Add(function(player){ player.Spawns.Spawn()});
 
 
 
-
-
+// лидер борды
 LeaderBoard.PlayerLeaderBoardValues = [ 
  { 
   Value: "Kills", 
