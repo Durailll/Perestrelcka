@@ -332,7 +332,7 @@ lopTrigger.Color = {g:1};
 lopTrigger.Tags = ["втор"]; 
 lopTrigger.Enable = true; 
 lopTrigger.OnEnter.Add(function(player) { 
-player.inventory.Secondar.Value = true;
+player.inventory.Secondary.Value = true;
 player.Ui.Hint.Value = "вы взяли вторичное оружие";
 });
 
