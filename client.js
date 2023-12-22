@@ -345,12 +345,12 @@ player.inventory.Main.Value = true;
 player.Ui.Hint.Value = "вы взяли основное оружие";
 });
 //выдача
-var lopTrigger = AreaPlayerTriggerService.Get("lopTrigger");
-lopTrigger.Color = {g:1};
-lopTrigger.Tags = ["втор"]; 
-lopTrigger.Enable = true; 
-lopTrigger.OnEnter.Add(function(player) { 
-player.inventory.Secondar.Value = true;
-player.Ui.Hint.Value = "вы взяли вторичное оружие";
+var lotTrigger = AreaPlayerTriggerService.Get("lotTrigger");
+lotTrigger.Color = {g:1};
+lotTrigger.Tags = ["грен"]; 
+lotTrigger.Enable = true; 
+lotTrigger.OnEnter.Add(function(player) { 
+player.inventory.Hint.Value = true;
+player.Ui.Hint.Value = "вы взяли гранату";
 });
 
