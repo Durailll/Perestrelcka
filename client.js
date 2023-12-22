@@ -350,7 +350,7 @@ lotTrigger.Color = {g:1};
 lotTrigger.Tags = ["грен"]; 
 lotTrigger.Enable = true; 
 lotTrigger.OnEnter.Add(function(player) { 
-player.inventory.Hint.Value = true;
+player.inventory.Explosive.Value = true;
 player.Ui.Hint.Value = "вы взяли гранату. ";
 });
 
