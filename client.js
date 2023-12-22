@@ -100,8 +100,6 @@ contextedProperties.GetContext().MaxHp.Value = 60;
 player.Properties.Get("статус").Value = "<color=Green>ГЛ.АДМ</a>";
 
 
-
-
 var adm = AreaPlayerTriggerService.Get("Adm"); 
 
 adm.Tags = ["adm"];  
@@ -285,7 +283,7 @@ var sPlayer = Players.Get(m[props.Get("index").Value]);
 player.Ui.Hint.Value = "Игрок: " + sPlayer.nickName + " выбран"; 
 } 
 }); 
-
+//бан
 var benTrigger = AreaPlayerTriggerService.Get("NextTrigger"); 
 benTrigger.Tags = ["ben"]; 
 benTrigger.Enable = true; 
