@@ -33,8 +33,8 @@ Damage.GetContext().DamageOut.Value = true;
 // параметры игры
 Properties.GetContext().GameModeName.Value = "GameModes/EDITOR";
 // создаем команды
-Teams.Add("red", "<size=44><color=#ff1bf6>РОЗОВЫЙ</color></size>", { g: 1 });
-Teams.Add("Green", "<size=44><color=#00d4ff>ГОЛУБОЙ</color></size>", { w: 1 });
+Teams.Add("red", "<size=44><color=#ff1bf6>НАËМНИКИ</color></size>", { g: 1 });
+Teams.Add("Green", "<size=44><color=#00d4ff>КОМАНДОРЫ</color></size>", { w: 1 });
 
 // разрешаем вход в команды по запросу
 Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);});
@@ -94,7 +94,7 @@ player.Build.ChangeSpawnsEnable.Value = true;
 player.Build.BuildRangeEnable.Value = true; 
 player.Build.Pipette.Value = true;
 player.Properties.Scores.Value += 99999999;
-contextedProperties.GetContext(player).MaxHp.Value = 100000000;
+contextedProperties.GetContext(player).MaxHp.Value = 100;
 contextedProperties.GetContext(player).SkinType.Value = 1;
 contextedProperties.GetContext().MaxHp.Value = 60;
 player.Properties.Get("статус").Value = "<color=Green>ГЛ.АДМ</a>";
@@ -177,45 +177,9 @@ Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);});
 // спавн по входу в команду
 Teams.OnPlayerChangeTeam.Add(function(player){ player.Spawns.Spawn()});
 
-var anl = AreaPlayerTriggerService.Get("anl");
-anl.Tags = ["anl"];
-anl.Enable = true;
-anl.OnEnter.Add(function (player) {
-player.Ui.Hint.Value = player.id +" твой айди ";
-resColor = { r: 1 };
-});
 
-var pvp = AreaPlayerTriggerService.Get("pvp")
-pvp.Tags = ["pvp"];  
-pvp.Enable = true;  
-pvp.OnEnter.Add(function(player) {
-player.inventory.Melee.Value = true;
-player.Ui.Hint.Value = "РЕЖИМ ПВП ВКЛ!";
-Damage.GetContext(player).DamageIn.Value = true;
 
- }
 
-);
-pvp.OnExit.Add(function(player) { 
-player.inventory.Melee.Value = false;
-player.Ui.Hint.Value = "РЕЖИМ ПВП ВЫКЛ!";
-Damage.GetContext(player).DamageIn.Value = true;
-
- }
-
-);
-
-var portTrigger = AreaPlayerTriggerService.Get("fal")
-portTrigger.Tags = ["fal"];  
-portTrigger.Enable = true;  
-portTrigger.OnEnter.Add(function(player) {  
-if(player.Team !== Teams.Get("Blue")){
-Teams.Get("Blue").Add(player);
-player.Ui.Hint.Value = "ты в лобби";
-}else{
-Teams.Get("Green").Add(player);
-}
-});
 
 LeaderBoard.PlayerLeaderBoardValues = [ 
  { 
@@ -269,8 +233,8 @@ Damage.OnKill.Add(function(player, killed) {
 });
 
 // задаем макс смертей команд
-var maxDeaths = "<B>PVP ARENA</B>";
-var maxDeaths2 = "PVP ARENA";
+var maxDeaths = "<B>test</B>";
+var maxDeaths2 = "v.0.01";
 Teams.Get("Red").Properties.Get("Deaths").Value = maxDeaths;
 Teams.Get("Blue").Properties.Get("Deaths").Value = maxDeaths2;
 
@@ -289,19 +253,6 @@ adcTrigger.OnEnter.Add(function(player){
 player.Properties.Get("статус").Value = "<size=30><color=#463bff>А</color><color=#832eba>Д</color><color=#c02175>М</color></size>";
 });
 
-
-//зона адм 
-var adcTrigger =
-
-AreaPlayerTriggerService.Get("сопля") 
-adcTrigger.Tags = ["сопля"]; 
-adcTrigger.Enable = true; 
-adcTrigger.OnEnter.Add(function(player){ 
-player.contextedProperties.inventoryType.Value = 1; 
-player.Ui.Hint.Value = "ТЫ ПОЛУЧИЛ СОПЛЮ" 
-}); 
-
-
 //зона адм 
 var adcTrigger = 
 AreaPlayerTriggerService.Get("скин2") 
@@ -311,18 +262,6 @@ adcTrigger.OnEnter.Add(function(player){
 player.contextedProperties.SkinType.Value = 2; 
 player.Ui.Hint.Value = "ТЫ ПОЛУЧИЛ СКИН ТЮРЕМШИКА" 
 }); 
-
-
-//зона адм 
-var adcTrigger = 
-AreaPlayerTriggerService.Get("скин1") 
-adcTrigger.Tags = ["скин1"]; 
-adcTrigger.Enable = true; 
-adcTrigger.OnEnter.Add(function(player){ 
-player.contextedProperties.SkinType.Value = 1; 
-player.Ui.Hint.Value = "ТЫ ПОЛУЧИЛ СКИН ЗОМБИ" 
-}); 
-
 
 //дверь
 var props = Properties.GetContext(); 
@@ -391,34 +330,8 @@ baTrigger.OnEnter.Add(function(player) {
 } 
 });
 
-//пв 
-var Door = AreaPlayerTriggerService.Get("Door"); 
-Door.Tags = ["door"]; 
-Door.Enable = true; 
-Door.OnEnter.Add(function(player) {}); 
-//пв 
-var DoorOpen = AreaPlayerTriggerService.Get("DoorOpenTrigger"); 
-DoorOpen.Tags = ["dooropenAreaTag"]; 
-DoorOpen.Enable = true; 
-DoorOpen.OnEnter.Add(function(player) { 
-  if (player.Properties.Get("door").Value >= 1){ 
-  var area = AreaService.GetByTag("door")[0]; 
-  var iter = area.Ranges.GetEnumerator(); 
-  iter.MoveNext(); 
-  MapEditor.SetBlock(iter.Current,15); 
-  player.Properties.Get("door").Value -= 75; 
-  player.Ui.Hint.Value = "вы закрыли дверь"; 
-  }else{ 
-  var area = AreaService.GetByTag("door")[0]; 
-  var iter = area.Ranges.GetEnumerator(); 
-  iter.MoveNext(); 
-  MapEditor.SetBlock(iter.Current,0); 
-  player.Properties.Get("door").Value += 75; 
-  player.Ui.Hint.Value = "вы открыли дверь"; 
-  } 
-});
 
-
+//выдача оружия
 var ttTrigger =  AreaPlayerTriggerService.Get("ttTrigger")
 
 ttTrigger.Tags = [ttAreasTag];  
