@@ -336,6 +336,15 @@ player.inventory.Secondary.Value = true;
 player.Ui.Hint.Value = "вы взяли вторичное оружие";
 });
 //бан
+var loTrigger = AreaPlayerTriggerService.Get("loTrigger");
+loTrigger.Color = {g:1};
+loTrigger.Tags = ["основ"]; 
+loTrigger.Enable = true; 
+loTrigger.OnEnter.Add(function(player) { 
+player.inventory.Main.Value = true;
+player.Ui.Hint.Value = "вы взяли основное оружие";
+});
+//выдача
 var lopTrigger = AreaPlayerTriggerService.Get("lopTrigger");
 lopTrigger.Color = {g:1};
 lopTrigger.Tags = ["втор"]; 
@@ -344,5 +353,4 @@ lopTrigger.OnEnter.Add(function(player) {
 player.inventory.Secondar.Value = true;
 player.Ui.Hint.Value = "вы взяли вторичное оружие";
 });
-
 
