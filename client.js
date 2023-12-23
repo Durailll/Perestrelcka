@@ -354,3 +354,17 @@ player.inventory.Explosive.Value = true;
 player.Ui.Hint.Value = "вы взяли гранату. ";
 });
 
+
+//двери 
+var fTrigger = 
+AreaPlayerTriggerService.Get("хп2000") 
+fTrigger.Tags = ["хп2000"]; 
+fTrigger.Enable = true; 
+fTrigger.OnEnter.Add(function(player){ 
+player.Ui.Hint.Value = "стоимость 2000 хп 30000 монет" 
+if (player.Properties.Scores.Value > 30000){ 
+player.Properties.Scores.Value -= 30000; 
+player.contextedProperties.MaxHp.Value = 2000; 
+player.Spawns.Spawn(); 
+} 
+}); 
