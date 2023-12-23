@@ -33,7 +33,7 @@ Damage.GetContext().DamageOut.Value = true;
 // параметры игры
 Properties.GetContext().GameModeName.Value = "GameModes/EDITOR";
 // создаем команды
-Teams.Add("red", "<size=44><color=#ff1bf6>НАËМНИКИ</color></size>", { g: 1 });
+Teams.Add("Blue", "<size=44><color=#ff1bf6>НАËМНИКИ</color></size>", { g: 1 });
 Teams.Add("Green", "<size=44><color=#00d4ff>КОМАНДОРЫ</color></size>", { w: 1 });
 
 // разрешаем вход в команды по запросу
@@ -231,7 +231,7 @@ Damage.OnKill.Add(function(player, killed) {
 
 // задаем макс смертей команд
 var maxDeaths = "<B>test</B>";
-var maxDeaths2 = "v0.02";
+var maxDeaths2 = "v0.05";
 Teams.Get("Red").Properties.Get("Deaths").Value = maxDeaths;
 Teams.Get("Blue").Properties.Get("Deaths").Value = maxDeaths2;
 
