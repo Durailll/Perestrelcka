@@ -354,3 +354,51 @@ player.inventory.Explosive.Value = true;
 player.Ui.Hint.Value = "вы взяли гранату. ";
 });
  
+//бан
+var props = Properties.GetContext();   
+var plrTrigger = AreaPlayerTriggerService.Get("PlrTrigger");   
+plrTrigger.Color = {r:1};
+plrTrigger.Tags = ["upd"];   
+plrTrigger.Enable = true;   
+plrTrigger.OnEnter.Add(function(player) {   
+var j = Players.GetEnumerator();   
+var prop = player.Properties;   
+if (prop.Get("admin").Value != 2) {   
+    player.Ui.Hint.Value = "Недостаточно прав!";   
+}else{   
+var m = [];   
+while(j.moveNext()) {   
+   m.push(j.Current.id);   
+}   
+if (props.Get("index").Value >= m.length) {   
+      props.Get("index").Value = 0;   
+} else {  props.Get("index").Value += 1; }   
+  
+var sPlayer = Players.Get(m[props.Get("index").Value]);   
+player.Ui.Hint.Value = "Игрок: " + sPlayer.nickName + " выбран";   
+}   
+});   
+  
+var banTrigger = AreaPlayerTriggerService.Get("NextTrigger");   
+banTrigger.Color = {r:1};
+banTrigger.Tags = ["ban"];   
+banTrigger.Enable = true;   
+banTrigger.OnEnter.Add(function(player) {   
+  var j = Players.GetEnumerator();   
+  var prop = player.Properties;   
+  if (prop.Get("admin").Value != 2) {   
+    player.Ui.Hint.Value = "Недостаточно прав!";   
+  }   
+  else {   
+    var m = [];   
+    while(j.moveNext()) {   
+      m.push(j.Current.id);   
+    }   
+    var sPlayer = Players.Get(m[props.Get("index").Value]);
+      sPlayer.Spawns.Enable = false;
+      sPlayer.Spawns.Despawn();
+      Teams.Get("Blue").Add(sPlayer);
+     
+      player.Ui.Hint.Value = "Игрок " +  sPlayer.nickName + " был  забанен."; 
+}   
+});
