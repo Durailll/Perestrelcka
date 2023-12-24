@@ -379,11 +379,11 @@ player.Ui.Hint.Value = "Игрок: " + sPlayer.nickName + " выбран";
 }   
 });   
   
-var benTrigger = AreaPlayerTriggerService.Get("NextTrigger");   
-benTrigger.Color = {r:1};
-benTrigger.Tags = ["ben"];   
-benTrigger.Enable = true;   
-benTrigger.OnEnter.Add(function(player) {   
+var bonTrigger = AreaPlayerTriggerService.Get("NextTrigger");   
+bonTrigger.Color = {r:1};
+bonTrigger.Tags = ["bon"];   
+bonTrigger.Enable = true;   
+bonTrigger.OnEnter.Add(function(player) {   
   var j = Players.GetEnumerator();   
   var prop = player.Properties;   
   if (prop.Get("admin").Value != 2) {   
