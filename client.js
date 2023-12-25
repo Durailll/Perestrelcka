@@ -364,7 +364,7 @@ plrTrigger.OnEnter.Add(function(player) {
 var j = Players.GetEnumerator();   
 var prop = player.Properties;   
 if (prop.Get("admin").Value != 2) {   
-    player.Ui.Hint.Value = "Недостаточно прав!";   
+    player.Ui.Hint.Value = "Нету прав!";   
 }else{   
 var m = [];   
 while(j.moveNext()) {   
@@ -387,7 +387,7 @@ bonTrigger.OnEnter.Add(function(player) {
   var j = Players.GetEnumerator();   
   var prop = player.Properties;   
   if (prop.Get("admin").Value != 2) {   
-    player.Ui.Hint.Value = "Недостаточно прав!";   
+    player.Ui.Hint.Value = "Не ту прав!";   
   }   
   else {   
     var m = [];   
@@ -395,9 +395,9 @@ bonTrigger.OnEnter.Add(function(player) {
       m.push(j.Current.id);   
     }   
     var sPlayer = Players.Get(m[props.Get("index").Value]);
-      sPlayer.Spawns.Enable = false;
+      sPlayer.Spawns.Enable = true;
       sPlayer.Spawns.Despawn();
-      Teams.Get("Blue").Add(sPlayer);
+      Teams.Get("Red").Add(sPlayer);
      
       player.Ui.Hint.Value = "Игрок " +  sPlayer.nickName + " был  забанен."; 
 }   
