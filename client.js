@@ -402,3 +402,12 @@ bonTrigger.OnEnter.Add(function(player) {
       player.Ui.Hint.Value = "Игрок " +  sPlayer.nickName + " был  забанен."; 
 }   
 });
+// я топ
+var инфаTrigger = 
+AreaPlayerTriggerService.Get("инфаTrigger"); 
+инфаTrigger.Tags = ["инфа"]; 
+инфаTrigger.Enable = true; 
+инфаTrigger.OnEnter.Add(function (player) { 
+
+player.Ui.Hint.Value = "скоро будут добавлены магазин за в версий 0.20"; 
+}); 
