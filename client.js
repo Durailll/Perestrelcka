@@ -33,7 +33,7 @@ Damage.GetContext().DamageOut.Value = true;
 // параметры игры
 Properties.GetContext().GameModeName.Value = "GameModes/EDITOR";
 // создаем команды
-Teams.Add("Blue", "<size=44><color=#ff1bf6>НАËМНИКИ</color></size>", { g: 1 });
+Teams.Add("Blue", "<size=44><color=#ff1bf6>НАËМНИКИ</color></size>", { w: 1 });
 Teams.Add("Green", "<size=44><color=#00d4ff>КОМАНДОРЫ</color></size>", { w: 1 });
 
 // разрешаем вход в команды по запросу
@@ -42,7 +42,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);});
 Teams.OnPlayerChangeTeam.Add(function(player){ player.Spawns.Spawn()});
 
 // задаем подсказку
-Ui.getContext().Hint.Value = "ПАБЛО - ПОПА МУРАВЬЯ - МАТ - СДОХНИ 50 РАЗ - УБЕЙ 5 ЧЕЛИКОВ - ПРИВЕТ ЛОЛ";
+Ui.getContext().Hint.Value = "ВЫЖИВАЙ В ГОРОДЕ, СОЗДАВАЙ КОМАНДУ! ";
 
 // конфигурация инвентаря
 var roomInventory = Inventory.GetContext();
@@ -58,7 +58,7 @@ roomInventory.BuildInfinity.Value = true;
 Spawns.GetContext().RespawnTime.Value = 2;
 
 Players.Get("AAD18F7FB400BD5F").build.BuildRangeEnable.Value = true;
-Players.Get("AAD18F7FB400BD5F"). Damage.DamageIn.Value = false;
+Players.Get("AAD18F7FB400BD5F"). Damage.DamageIn.Value = true;
 // ????????? ???? ? ??????? ?? ???????  
 Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);  
 Ui.GetContext().Hint.Value = player +" ку,как дела? ";  
@@ -225,7 +225,7 @@ Damage.OnDeath.Add(function(player) {
 Damage.OnKill.Add(function(player, killed) {
  if (killed.Team != null && killed.Team != player.Team) {
   ++player.Properties.Kills.Value;
-  player.Properties.Scores.Value += 500;
+  player.Properties.Scores.Value += 40;
  }
 });
 
