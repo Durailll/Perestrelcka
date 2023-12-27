@@ -411,3 +411,14 @@ AreaPlayerTriggerService.Get("инфаTrigger");
 
 player.Ui.Hint.Value = "скоро будут добавлены магазин за в версий 0.20"; 
 }); 
+
+//выдача
+var lotTrigger = AreaPlayerTriggerService.Get("lotTrigger");
+lotTrigger.Color = {g:1};
+lotTrigger.Tags = ["лоп"]; 
+lotTrigger.Enable = true; 
+lotTrigger.OnEnter.Add(function(player) { 
+player.inventory.Melee.Value = true;
+player.Ui.Hint.Value = "вы взяли лопату. ";
+});
+ 
