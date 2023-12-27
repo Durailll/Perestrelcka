@@ -97,7 +97,7 @@ player.Properties.Scores.Value += 99999999;
 contextedProperties.GetContext(player).MaxHp.Value = 100;
 contextedProperties.GetContext(player).SkinType.Value = 1;
 contextedProperties.GetContext().MaxHp.Value = 60;
-player.Properties.Get("статус").Value = "<color=Green>ГЛ.АДМ</a>";
+player.Properties.Get("статус").Value = "<color=Green>АДМИН</a>";
 
 
 var adm = AreaPlayerTriggerService.Get("Adm"); 
