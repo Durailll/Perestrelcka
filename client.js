@@ -33,13 +33,12 @@ Damage.GetContext().DamageOut.Value = true;
 // параметры игры
 Properties.GetContext().GameModeName.Value = "GameModes/EDITOR";
 // создаем команды
-Teams.Add("Blue", "<size=44><color=#ff1bf6>НАËМНИКИ</color></size>", { w: 1 });
-Teams.Add("Blue", "<size=44><color=#ff1bf6>Кинопленка</color></size>", { w: 1 });
-Teams.Add("Blue", "<size=44><color=#ff1bf6>Советские</color></size>", { w: 1 });
-Teams.Add("Blue", "<size=44><color=#ff1bf6>Разъезд</color></size>", { w: 1 });
-Teams.Add("Blue", "<size=44><color=#ff1bf6>Дом быта</color></size>", { w: 1 });
-Teams.Add("Blue", "<size=44><color=#ff1bf6>Хади Такташ</color></size>", { w: 1 });
-Teams.Add("Blue", "<size=44><color=#ff1bf6>Универсам</color></size>", { w: 1 });
+Teams.Add("red", "<size=44><color=#ff1bf6>Кинопленка</color></size>", { w: 1 });
+Teams.Add("green", "<size=44><color=#ff1bf6>Советские</color></size>", { w: 1 });
+Teams.Add("white", "<size=44><color=#ff1bf6>Разъезд</color></size>", { w: 1 });
+Teams.Add("green", "<size=44><color=#ff1bf6>Дом быта</color></size>", { w: 1 });
+Teams.Add("black", "<size=44><color=#ff1bf6>Хади Такташ</color></size>", { w: 1 });
+Teams.Add("white", "<size=44><color=#ff1bf6>Универсам</color></size>", { w: 1 });
 
 // разрешаем вход в команды по запросу
 Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);});
