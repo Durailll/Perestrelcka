@@ -36,7 +36,6 @@ Properties.GetContext().GameModeName.Value = "GameModes/EDITOR";
 Teams.Add("red", "<size=44><color=#ff1bf6>Кинопленка</color></size>", { w: 1 });
 Teams.Add("green", "<size=44><color=#ff1bf6>Советские</color></size>", { w: 1 });
 Teams.Add("white", "<size=44><color=#ff1bf6>Разъезд</color></size>", { w: 1 });
-Teams.Add("green", "<size=44><color=#ff1bf6>Дом быта</color></size>", { w: 1 });
 Teams.Add("black", "<size=44><color=#ff1bf6>Хади Такташ</color></size>", { w: 1 });
 Teams.Add("white", "<size=44><color=#ff1bf6>Универсам</color></size>", { w: 1 });
 
