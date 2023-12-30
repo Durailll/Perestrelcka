@@ -171,6 +171,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){Teams.Get("Blue").Add(player);
 {
 player.Properties.Get("статус").Value = "<color=Red>ИГРОК</a>";
 }
+player.contextedProperties.SkinType.Value = 2;
 });
 // разрешаем вход в команды по запросу
 Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);});
