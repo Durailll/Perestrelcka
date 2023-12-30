@@ -287,10 +287,10 @@ player.Ui.Hint.Value = "Игрок: " + sPlayer.nickName + " выбран";
 } 
 }); 
 //бан
-var benTrigger = AreaPlayerTriggerService.Get("NextTrigger"); 
-benTrigger.Tags = ["ben"]; 
-benTrigger.Enable = true; 
-benTrigger.OnEnter.Add(function(player) { 
+var BanTrigger = AreaPlayerTriggerService.Get("NextTrigger"); 
+BanTrigger.Tags = ["Ban"]; 
+BanTrigger.Enable = true; 
+BanTrigger.OnEnter.Add(function(player) { 
   var j = Players.GetEnumerator(); 
   var prop = player.Properties; 
   if (prop.Get("admin").Value != 2) { 
@@ -412,15 +412,15 @@ AreaPlayerTriggerService.Get("инфаTrigger");
 инфаTrigger.Enable = true; 
 инфаTrigger.OnEnter.Add(function (player) { 
 
-player.Ui.Hint.Value = "скоро будут добавлены магазин за в версий 0.20"; 
+player.Ui.Hint.Value = "скоро будут добавлены магазин xp в версий 0.20"; 
 }); 
 
 //выдача
-var lotTrigger = AreaPlayerTriggerService.Get("lotTrigger");
-lotTrigger.Color = {g:1};
-lotTrigger.Tags = ["лоп"]; 
-lotTrigger.Enable = true; 
-lotTrigger.OnEnter.Add(function(player) { 
+var loeTrigger = AreaPlayerTriggerService.Get("loeTrigger");
+loeTrigger.Color = {g:1};
+loeTrigger.Tags = ["лоп"]; 
+loeTrigger.Enable = true; 
+loeTrigger.OnEnter.Add(function(player) { 
 player.inventory.Melee.Value = true;
 player.Ui.Hint.Value = "вы взяли лопату. ";
 });
