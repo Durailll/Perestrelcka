@@ -234,7 +234,7 @@ Damage.OnKill.Add(function(player, killed) {
 
 // задаем макс смертей команд
 var maxDeaths = "<B>test</B>";
-var maxDeaths2 = "v0.05";
+var maxDeaths2 = "v0.10";
 Teams.Get("Red").Properties.Get("Deaths").Value = maxDeaths;
 Teams.Get("Blue").Properties.Get("Deaths").Value = maxDeaths2;
 
