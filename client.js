@@ -33,10 +33,10 @@ Damage.GetContext().DamageOut.Value = true;
 // параметры игры
 Properties.GetContext().GameModeName.Value = "GameModes/EDITOR";
 // создаем команды
-Teams.Add("Red", "<size=44><color=#ff1bf6>Кинопленка</color></size>", { g: 1 });
-Teams.Add("White", "<size=44><color=#ff1bf6>универсам</color></size>", { a: 1 });
-Teams.Add("White", "<size=44><color=#ff1bf6>Разъезд</color></size>", { a: 1 });
-Teams.Add("Black", "<size=44><color=#ff1bf6>Хади Такташ</color></size>", { g: 1 });
+Teams.Add("Red", "<size=44><color=Blue>Кинопленка</color></size>", { g: 1 });
+Teams.Add("White", "<size=44><color=White>универсам</color></size>", { a: 1 });
+Teams.Add("White", "<size=44><color=#Black>Разъезд</color></size>", { a: 1 });
+Teams.Add("Black", "<size=44><color=White>Хади Такташ</color></size>", { g: 1 });
 
 // разрешаем вход в команды по запросу
 Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);});
