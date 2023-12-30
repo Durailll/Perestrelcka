@@ -263,52 +263,7 @@ player.contextedProperties.SkinType.Value = 2;
 player.Ui.Hint.Value = "ТЫ ПОЛУЧИЛ СКИН ТЮРЕМШИКА" 
 }); 
 
-//дверь
-var props = Properties.GetContext(); 
-var plrTrigger = AreaPlayerTriggerService.Get("PlrTrigger"); 
-plrTrigger.Tags = ["upd"]; 
-plrTrigger.Enable = true; 
-plrTrigger.OnEnter.Add(function(player) { 
-var j = Players.GetEnumerator(); 
-var prop = player.Properties; 
-if (prop.Get("admin").Value != 2) { 
-    player.Ui.Hint.Value = "Недостаточно прав!"; 
-}else{ 
-var m = []; 
-while(j.moveNext()) { 
-   m.push(j.Current.id); 
-} 
-if (props.Get("index").Value >= m.length) { 
-      props.Get("index").Value = 0; 
-} else {  props.Get("index").Value += 1; } 
-
-var sPlayer = Players.Get(m[props.Get("index").Value]); 
-player.Ui.Hint.Value = "Игрок: " + sPlayer.nickName + " выбран"; 
-} 
-}); 
-//бан
-var BanTrigger = AreaPlayerTriggerService.Get("NextTrigger"); 
-BanTrigger.Tags = ["Ban"]; 
-BanTrigger.Enable = true; 
-BanTrigger.OnEnter.Add(function(player) { 
-  var j = Players.GetEnumerator(); 
-  var prop = player.Properties; 
-  if (prop.Get("admin").Value != 2) { 
-    player.Ui.Hint.Value = "Недостаточно прав!"; 
-  } 
-  else { 
-    var m = []; 
-    while(j.moveNext()) { 
-      m.push(j.Current.id); 
-    } 
-    var sPlayer = Players.Get(m[props.Get("index").Value]); 
-      sPlayer.Spawns.Enable = false; 
-      sPlayer.Spawns.Despawn(); 
-      player.Ui.Hint.Value = "Игрок " +  sPlayer.nickName + " забанен"; 
-
-} 
-}); 
-
+//бан 
 var baTrigger = AreaPlayerTriggerService.Get("NexTrigger"); 
 baTrigger.Tags = ["razBan"]; 
 baTrigger.Enable = true; 
