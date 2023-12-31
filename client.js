@@ -63,7 +63,7 @@ Players.Get("AAD18F7FB400BD5F").build.BuildRangeEnable.Value = true;
 Players.Get("AAD18F7FB400BD5F"). Damage.DamageIn.Value = true;
 // ????????? ???? ? ??????? ?? ???????  
 Teams.OnRequestJoinTeam.Add(function(player,team){team.Add(player);  
-Ui.GetContext().Hint.Value = player +" ку,как дела? ";  
+Ui.GetContext().Hint.Value = player +" ДОБРО ПОЖАЛОВАТЬ В КАЗАНЬ!;  
 
 if (player.id  == "AAD18F7FB400BD5F" || 
  player.id  == "AAA9FBB8CCA3CD90" || 
